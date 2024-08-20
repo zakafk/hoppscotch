@@ -19,10 +19,12 @@ export function getMailerAddressFrom(env, config): string {
 }
 
 export function getTransportOption(env, config): TransportType {
-  const useCustomConfigs = isSMTPCustomConfigsEnabled(
-    env.INFRA.MAILER_USE_CUSTOM_CONFIGS ??
-      config.get('MAILER_USE_CUSTOM_CONFIGS'),
-  );
+  // const useCustomConfigs = isSMTPCustomConfigsEnabled(
+  //   env.INFRA.MAILER_USE_CUSTOM_CONFIGS ??
+  //     config.get('MAILER_USE_CUSTOM_CONFIGS'),
+  // );
+
+  const useCustomConfigs = true;
 
   if (!useCustomConfigs) {
     console.log('Using simple mailer configuration');
